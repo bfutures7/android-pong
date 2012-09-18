@@ -5,16 +5,19 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.Window;
 import android.view.WindowManager;
 
 public class GameActivity extends Activity {
+	
 	private PongView mPongView;
 	private AlertDialog mAboutBox;
 	protected PowerManager.WakeLock mWakeLock;
-	
+    public MediaPlayer backgroundMusic;
+    
 	public static final String
 		EXTRA_RED_PLAYER = "red-is-player",
 		EXTRA_BLUE_PLAYER = "blue-is-player";
@@ -29,7 +32,10 @@ public class GameActivity extends Activity {
         
         
         setContentView(R.layout.pong_view);
+        MediaPlayer backgroundMusic = MediaPlayer.create(GameActivity.this, R.raw.riseabove);
         mPongView = (PongView) findViewById(R.id.pong);
+        backgroundMusic.start();
+        backgroundMusic.setLooping(true);
         
         Intent i = getIntent();
         Bundle b = i.getExtras();
@@ -48,6 +54,7 @@ public class GameActivity extends Activity {
     protected void onStop() {
     	super.onStop();
 		mPongView.stop();
+		backgroundMusic.pause();
     }
     
     protected void onResume() {

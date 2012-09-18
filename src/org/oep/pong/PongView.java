@@ -37,7 +37,7 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 	
 	public static final int
 		STARTING_LIVES = 1,
-		PLAYER_PADDLE_SPEED = 10;
+		PLAYER_PADDLE_SPEED = 20;
 	
 	/**
 	 * This is mostly deprecated but kept around if the need
@@ -93,7 +93,7 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 	private final Paint mPaint = new Paint();
 
 	/** Padding for touch zones and paddles */
-	private static final int PADDING = 3;
+	private static final int PADDING = 4;
 	
 	/** Scrollwheel sensitivity */
 	private static final int SCROLL_SENSITIVITY = 80;
@@ -989,7 +989,7 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 		public int destination;
 		
 		public Paddle(int c, int y) {
-			mColor = c;
+			mColor = android.R.color.darker_gray;
 			
 			int mid = PongView.this.getWidth() / 2;
 			mRect = new Rect(mid - PADDLE_WIDTH, y,
@@ -1108,9 +1108,9 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
 		}
 		
 		/** Thickness of the paddle */
-		private static final int PADDLE_THICKNESS = 10;
+		private static final int PADDLE_THICKNESS = 20;
 		
 		/** Width of the paddle */
-		private static final int PADDLE_WIDTH = 40;
+		private static final int PADDLE_WIDTH = 20;
 	}
 }
