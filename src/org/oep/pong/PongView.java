@@ -448,8 +448,8 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
     	Rect redTouch = new Rect(0,0,getWidth(),getHeight() / 8);
     	Rect blueTouch = new Rect(0, 7 * getHeight() / 8, getWidth(), getHeight());
     	
-    	mRed = new Paddle(Color.RED, redTouch.bottom + PADDING);
-    	mBlue = new Paddle(Color.BLUE, blueTouch.top - PADDING - Paddle.PADDLE_THICKNESS);
+    	mRed = new Paddle(Color.CYAN, redTouch.bottom + PADDING);
+    	mBlue = new Paddle(Color.WHITE, blueTouch.top - PADDING - Paddle.PADDLE_THICKNESS);
     	
     	mRed.setTouchbox( redTouch );
     	mBlue.setTouchbox( blueTouch );
@@ -546,12 +546,12 @@ public class PongView extends View implements OnTouchListener, OnKeyListener {
         	int joinw = (int) mPaint.measureText(join);
         	
         	if(!mRed.player) {
-        		mPaint.setColor(Color.RED);
+        		mPaint.setColor(Color.CYAN);
         		canvas.drawText(join, getWidth() / 2 - joinw / 2, mRed.touchCenterY(), mPaint);
         	}
         	
         	if(!mBlue.player) {
-        		mPaint.setColor(Color.BLUE);
+        		mPaint.setColor(Color.GREEN);
         		canvas.drawText(join, getWidth() / 2 - joinw / 2, mBlue.touchCenterY(), mPaint);
         	}
         }
